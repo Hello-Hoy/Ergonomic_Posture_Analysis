@@ -9,7 +9,6 @@ PyCharm 프로젝트 설정 및 라이브러리 설치 안내
 - q 키를 누르면 종료됩니다.
 - MediaPipe Pose로 33개 랜드마크를 검출하여 화면에 시각화합니다.
 - 계산된 각도를 기준 임계값과 비교하여 텍스트/음성 피드백을 제공합니다.
-- 노트북 전면 카메라 한계로 무릎/허리 관측이 어려워 '등/허리 자세 분석'은 제거되었습니다.
 """
 import cv2
 import time
@@ -126,7 +125,7 @@ def main():
 
     last_posture_issue = None  # 마지막으로 감지된 자세 문제
     issue_start_time = None  # 문제가 시작된 시간
-    ISSUE_THRESHOLD_SECONDS = 3.0  # 동일한 문제가 지속될 때 피드백을 제공하기 위한 시간 임계값 (3초)
+    ISSUE_THRESHOLD_SECONDS = 2.0  # 동일한 문제가 지속될 때 피드백을 제공하기 위한 시간 임계값 (3초)
 
     while cap.isOpened():  # 웹캠이 열려있는 동안 루프를 실행합니다.
         success, img = cap.read()  # 웹캠에서 프레임을 읽습니다.
@@ -172,7 +171,7 @@ def main():
 
         # 화면에 텍스트 피드백을 표시합니다.
         if overlay_lines:
-            draw_text_multiline(img, overlay_lines, org=(10, 30), font_size=30, line_gap=8)
+            draw_text_multiline(img, overlay_lines, org=(10, 30), font_size=40, line_gap=8)
 
         # 피드백 로직
         if current_issue and "좋은 자세입니다." not in current_issue:

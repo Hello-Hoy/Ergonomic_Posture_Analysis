@@ -15,7 +15,7 @@ CVA_MIN_DEG = 70           # CVA 50° 미만이면 거북목 의심
 ELBOW_MIN_DEG = 80         # 팔꿈치 권장 범위 하한
 ELBOW_MAX_DEG = 100        # 팔꿈치 권장 범위 상한
 EYE_DOWN_NOSE_DIFF = 0.04  # 코와 눈 y차이가 이 값보다 크면 "고개 숙임"으로 판단(정규화 좌표)
-SLUMP_Z_THRESHOLD = -0.40  # 라운드 숄더 z차 임계값(환경에 따라 조정)
+SLUMP_Z_THRESHOLD = -0.25  # 라운드 숄더 z차 임계값(환경에 따라 조정)
 
 
 def calculate_angle(a, b, c):
