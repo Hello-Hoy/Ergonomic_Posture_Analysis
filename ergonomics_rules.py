@@ -110,9 +110,10 @@ def analyze_elbow_posture(landmarks):
     - 반환: (status, message). 'GOOD' 또는 'ELBOW_ANGLE_ISSUE'.
     """
     # 팔꿈치 각도: 어깨-팔꿈치-손목
-    LEFT_SHOULDER, RIGHT_SHOULDER = 11, 12
-    LEFT_ELBOW, RIGHT_ELBOW = 13, 14
-    LEFT_WRIST, RIGHT_WRIST = 15, 16
+    # 웹캠 좌우 반전으로 인해 RIGHT와 LEFT를 교차하여 사용합니다.
+    LEFT_SHOULDER, RIGHT_SHOULDER = 12, 11
+    LEFT_ELBOW, RIGHT_ELBOW = 14, 13
+    LEFT_WRIST, RIGHT_WRIST = 16, 15
 
     left_angle = calculate_angle(landmarks[LEFT_SHOULDER][:2], landmarks[LEFT_ELBOW][:2], landmarks[LEFT_WRIST][:2])
     right_angle = calculate_angle(landmarks[RIGHT_SHOULDER][:2], landmarks[RIGHT_ELBOW][:2], landmarks[RIGHT_WRIST][:2])
